@@ -27,57 +27,57 @@ public class HTML1 implements ActionListener {
 
     }
     //panel boarder
-        // results center, gird panel north
+    // results center, gird panel north
 
     public HTML1() {
 
-            gridPanel = new JPanel(new GridLayout(3,1));
+        gridPanel = new JPanel(new GridLayout(3, 1));
 
-            JPanel panel = new JPanel();
-            panel.setLayout(new BorderLayout());
+        JPanel panel = new JPanel();
+        panel.setLayout(new BorderLayout());
 
-            borderPanel = new JPanel();
+        borderPanel = new JPanel();
 
-            textArea = new JTextArea();
+        textArea = new JTextArea();
 
-            mainFrame = new JFrame("URL Entry");
+        mainFrame = new JFrame("URL Entry");
 
-            textField = new JTextField("Enter URL: ");
+        textField = new JTextField("Enter URL: ");
 
-            JPanel inputPanel = new JPanel();
-            inputPanel.setLayout(new FlowLayout());
+        JPanel inputPanel = new JPanel();
+        inputPanel.setLayout(new FlowLayout());
 
-            JTextField urlField = new JTextField("link", 20);
-            JTextField searchTermField = new JTextField("Search Term",20);
+        JTextField urlField = new JTextField("link", 20);
+        JTextField searchTermField = new JTextField("Search Term", 20);
 
-            inputPanel.add(new JLabel("URL:"));
-            inputPanel.add(urlField);
+        inputPanel.add(new JLabel("URL:"));
+        inputPanel.add(urlField);
 
-            inputPanel.add(new JLabel("Search Term:"));
-            inputPanel.add(searchTermField);
+        inputPanel.add(new JLabel("Search Term:"));
+        inputPanel.add(searchTermField);
 
-            JTextArea textArea = new JTextArea();
-            textArea.setEditable(false);
-            JScrollPane scrollPane = new JScrollPane(textArea);
+        JTextArea textArea = new JTextArea();
+        textArea.setEditable(false);
+        JScrollPane scrollPane = new JScrollPane(textArea);
 
-            JButton button = new JButton("Go");
+        JButton button = new JButton("Go");
 
-            inputPanel.add(button);
+        inputPanel.add(button);
 
-            borderPanel = new JPanel(new BorderLayout());
+        borderPanel = new JPanel(new BorderLayout());
 
-            panel.add(inputPanel, BorderLayout.NORTH);
+        panel.add(inputPanel, BorderLayout.NORTH);
 
-            panel.add(scrollPane, BorderLayout.CENTER);
+        panel.add(scrollPane, BorderLayout.CENTER);
 
 
         borderPanel.add(textArea, BorderLayout.CENTER);
 
-            borderPanel.add(gridPanel, BorderLayout.NORTH);
+        borderPanel.add(gridPanel, BorderLayout.NORTH);
 
-            mainFrame.add(borderPanel);
+        mainFrame.add(borderPanel);
 
-            mainFrame.add(gridPanel);
+        mainFrame.add(gridPanel);
 
 
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -88,17 +88,15 @@ public class HTML1 implements ActionListener {
 
         mainFrame.setVisible(true);
 
-            mainFrame.setSize(500, 500);
+        mainFrame.setSize(500, 500);
 
 
-
-        }
-
+    }
 
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        try{
+        try {
             String urlString = urlField.getText();
             String searchTerm = searchTermField.getText();
 
@@ -112,16 +110,11 @@ public class HTML1 implements ActionListener {
             }
             in.close();
 
-            textArea.setText("Content fetched from URL:\n\n" + content.toString());
-
-
-
         } catch (MalformedURLException ex) {
             throw new RuntimeException(ex);
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         }
-
 
     }
 }
